@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: medical-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: medical
+
+  template:
+    metadata:
+      labels:
+        app: medical
+
+    spec:
+      containers:
+      - name: medical-container
+        image: saakshidhage/medical-project:v1
+
+        ports:
+        - containerPort: 5000
